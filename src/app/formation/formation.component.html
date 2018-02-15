@@ -1,0 +1,99 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-8">
+          <div class="card">
+              <div class="header">
+                  <div class="row">
+                            <div class="col-md-8">
+                                <p>
+                                  <b>
+                                     <i class="ti-medall-alt"></i> Les diplômes
+                                </b>
+                                </p>
+                                </div>
+                          
+                        <div class="col-md-4">
+                            <div id="custom-search-input">
+                                <div class="input-group col-md-12">
+                                    
+                                    <input type="text" class="search-query form-control" placeholder="Search" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" type="button">
+                                            <i class="ti-search"></i>
+                                        </button>
+                                        
+                                    </span>
+                                </div>
+                            </div>
+                               
+                        </div>
+                            
+                  </div>
+              </div>
+              <div class="content table-responsive table-full-width">
+                  <table class="table ">
+                      <thead>
+                          <tr>
+                              <th *ngFor="let cell of tableData.headerRow">{{ cell }}</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let row of tableData.dataRows">
+                              <td *ngFor="let cell of row">{{cell}}</td>
+                              <td><div class="dropdown">
+                                  <button class="btn btn-info btn-m btn-fill dropdown-toggle" type="button" 
+                                  data-toggle="dropdown">Action
+                                  </button>
+                                  <ul class="dropdown-menu">
+                                      <li><a href="#"><i class="ti-trash"></i>  Supprimer</a></li>
+                                      <li><a href="#"><i class="ti-pencil"></i> Editer</a></li>
+                                    
+                                  </ul>
+                                </div></td>
+                          </tr>
+                      </tbody>
+                  </table>
+
+              </div>
+            <div class="footer">
+        <nav   aria-label="Page navigation example">
+                <button class="btn btn-primary btn-fill btn-m"  >Precedent</button>
+                <button  class="btn btn-primary btn-fill btn-m text-right" >Suivant</button>
+
+
+        </nav>
+    </div>
+          </div>
+      </div>
+
+
+      <div class="col-md-4">
+          <div class="card">
+             
+              <div class="card-block">
+                <h4 class="card-title">Ajouter un diplome</h4>
+                <div class="card-text">
+                    <form >
+                        <div class="form-group">
+                          <label for="formGroupExampleInput">Titre</label>
+                          <input type="text" class="form-control" id="formAdd" placeholder="LMD">
+                        </div>
+                        <div class="form-group">
+                          <label for="formGroupExampleInput2">Responsable</label>
+                          <input type="text" class="form-control" id="formAdd"  placeholder="Arthur Dupont">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Spécialité</label>
+                            <input type="text" class="form-control" id="formAdd"  placeholder="Informatique">
+                          </div>
+                          <div class="form-group">
+                              <button class="btn btn-primary btn-fill btn-m text-right">Valider</button>
+                            </div>
+                      </form>
+                    </div>
+              </div>
+            </div>
+</div>
+</div>
+</div>
+
