@@ -1,10 +1,16 @@
 <div class="container-fluid">
   <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12">
           <div class="card">
               <div class="header">
                   <div class="row">
-                            <div class="col-md-8">
+                    <div class="col-md-1">
+                       
+
+                        <button class="btn btn-info btn-xs btn-fill dropdown-toggle" type="button" 
+                        data-toggle="modal" data-target="#exampleModal"> <i class="ti-plus"></i></button>
+                    </div>        
+                    <div class="col-md-7" style="margin-left: -38px;">
                                 <p>
                                   <b>
                                      <i class="ti-medall-alt"></i> Les diplômes
@@ -16,7 +22,7 @@
                             <div id="custom-search-input">
                                 <div class="input-group col-md-12">
                                     
-                                    <input type="text" class="search-query form-control" placeholder="Search" />
+                                    <input type="text" class="search-query form-control" id="keysearch" placeholder="Search" />
                                     <span class="input-group-btn">
                                         <button class="btn btn-success" type="button">
                                             <i class="ti-search"></i>
@@ -31,15 +37,32 @@
                   </div>
               </div>
               <div class="content table-responsive table-full-width">
-                  <table class="table ">
+                  <table class="table" id="mytable">
                       <thead>
                           <tr>
                               <th *ngFor="let cell of tableData.headerRow">{{ cell }}</th>
+                              
+                              <th>Action</th>
                           </tr>
                       </thead>
                       <tbody>
                           <tr *ngFor="let row of tableData.dataRows">
-                              <td *ngFor="let cell of row">{{cell}}</td>
+                              
+                              <td *ngFor="let cell of row;let i=index;">
+                                
+                                    <a *ngIf="i==4" routerLink="/ens/3">
+                                        <p>{{cell}}</p>
+                                    </a>
+
+                                    <a *ngIf="i==0" routerLink="/ue/3">
+                                        <p>{{cell}}</p>
+                                    </a>
+
+                                    <p *ngIf="i%2!=0" >{{cell}}</p>
+                                    <p *ngIf="i==6" >{{cell}}</p>
+                                    <p *ngIf="i==2" >{{cell}}</p>
+                            
+                            </td>
                               <td><div class="dropdown">
                                   <button class="btn btn-info btn-m btn-fill dropdown-toggle" type="button" 
                                   data-toggle="dropdown">Action
@@ -67,7 +90,7 @@
       </div>
 
 
-      <div class="col-md-4">
+   <!--  <div class="col-md-4">
           <div class="card">
              
               <div class="card-block">
@@ -93,7 +116,40 @@
                     </div>
               </div>
             </div>
-</div>
-</div>
-</div>
+</div> !-->
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            
+                      <form >
+                          <div class="form-group">
+                            <label for="formGroupExampleInput">Titre</label>
+                            <input type="text" class="form-control" id="formAdd" placeholder="LMD">
+                          </div>
+                          <div class="form-group">
+                            <label for="formGroupExampleInput2">Responsable</label>
+                            <input type="text" class="form-control" id="formAdd"  placeholder="Arthur Dupont">
+                          </div>
+                          <div class="form-group">
+                              <label for="formGroupExampleInput2">Spécialité</label>
+                              <input type="text" class="form-control" id="formAdd"  placeholder="Informatique">
+                            </div>
+                           
+                        </form>
+                    
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

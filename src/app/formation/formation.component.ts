@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 declare interface TableData {
     headerRow: string[];
     dataRows: string[][];
@@ -19,14 +21,11 @@ export class FormationComponent implements OnInit{
   
     ngOnInit(){
     this.tableData = {
-        headerRow: [ 'ID', 'Name', 'Country', 'City', 'Salary'],
+        headerRow: [ '#ID','Département','Maquette',  'Titre UE','Responsable','Volume horaire','Verrou'],
         dataRows: [
-            ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-            ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-            ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-            ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-            ['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-            ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
+            ['INFO120',  'informatique','L1S1', 'Algorithme 1','Lopes stephane','200','Oui'],
+            ['INFO120',  'informatique','L1S2', 'Algorithme 2','Lopes stephane', '200','Oui'],
+            ['INFO120',  'informatique', 'L2S1','Algorithme 1', 'Lopes stephane','200','Oui'],
         ]
     };
    

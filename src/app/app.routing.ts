@@ -2,12 +2,16 @@ import { Routes } from '@angular/router';
 
 import { DashboardComponent }   from './dashboard/dashboard.component';
 import { UserComponent }   from './user/user.component';
-import { EnseignantComponent } from 'app/enseignant/enseignant.component';
+import { EnseignantsComponent } from 'app/enseignants/enseignants.component';
+
 import { FormationComponent } from 'app/formation/formation.component';
+import { UniteEnsComponent } from 'app/entity/unite-ens/unite-ens.component';
+import { ServiceComponent } from 'app/service/service.component';
+import { EnsComponent } from 'app/entity/ens/ens.component';
 
 export const AppRoutes: Routes = [
     {
-        path: '',
+        path: '*',
         redirectTo: 'dashboard',
         pathMatch: 'full',
     },
@@ -25,6 +29,19 @@ export const AppRoutes: Routes = [
     },
     {
         path: 'enseignant',
-        component: EnseignantComponent
+        component: EnseignantsComponent
+    },
+    {
+        path: 'services',
+        component: ServiceComponent
+    },
+
+    {
+        path: 'ue/:id',
+        component: UniteEnsComponent
+    },
+    {
+        path:'ens/:id',
+        component: EnsComponent
     }
 ]

@@ -7,17 +7,24 @@
                 <span class="icon-bar bar2"></span>
                 <span class="icon-bar bar3"></span>
             </button>
-            <a class="navbar-brand" href="#">{{getTitle()}}</a>
+            <a class="navbar-brand" href="#" >{{getTitle()}}</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 
-                <li>
-                    <a href="#">
-                        <i class="ti-settings"></i>
-                        <p>Déconnexion</p>
-                    </a>
-                </li>
+                <li role="presentation" class="dropdown">
+					<a
+						class="dropdown-toggle" data-toggle="dropdown" href="#"
+                        role="button" aria-haspopup="true" aria-expanded="false">
+                        IDOUHAMMOU.A
+					</a>
+						<ul class="dropdown-menu" id="dropdown-menu">
+					
+							<li> <a href="profil"><i id="icons" class="ti-user"></i> Profil</a></li>
+							<li> <a href="#"><i id="icons" class="ti-lock"></i> Déconnexion</a></li>
+							
+						</ul>
+						</li>
             </ul>
 
         </div>
