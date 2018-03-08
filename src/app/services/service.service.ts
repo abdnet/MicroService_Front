@@ -20,8 +20,7 @@ export class ServiceService {
   }
 
   getServiceByEnseignant(idEnseignant){
-      this.getAllservice();
-      console.log("la taille de serviceTable"+this.getAllservice().length);
+    return this._http.get('http://localhost:1111/serviceByEnseignant/'+idEnseignant).map(resp=>resp.json());
   }
 
   getServiceByDiplome(idUE){

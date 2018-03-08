@@ -17,7 +17,7 @@
                                   </b>
                                   </p>
                                   </div>
-                            
+
                           <div class="col-md-4">
                               <div id="custom-search-input">
                                   <div class="input-group col-md-12">
@@ -39,35 +39,26 @@
                 <div class="content table-responsive table-full-width">
                     <table class="table" id="mytable">
                         <thead>
+                            
                             <tr>
-                                <th *ngFor="let cell of tableData.headerRow">{{ cell }}</th>
-                                
-                                <th>Action</th>
+                                <th>#Id</th>
+                                <th>Nom/prénom</th>
+                                <th>Statut</th>
+                                <th>Heures à faire</th>
+                                <th>Heures faites</th>
+                                <th>Bilan</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let row of tableData.dataRows">
+                            <tr *ngFor="let row of rows">
                                 
-                                <td *ngFor="let cell of row;let i=index;">
-                                  
-                                      <a *ngIf="i==1" routerLink="/ens/3">
-                                          <p>{{cell}}</p>
-                                      </a>
-  
-                                    
-                                      <p *ngIf="i!=1">{{cell}}</p>
-                              
-                              </td>
-                                <td><div class="dropdown">
-                                    <button class="btn btn-info btn-m btn-fill dropdown-toggle" type="button" 
-                                    data-toggle="dropdown">Action
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="ti-trash"></i>  Supprimer</a></li>
-                                        <li><a href="#"><i class="ti-pencil"></i> Editer</a></li>
-                                      
-                                    </ul>
-                                  </div></td>
+                                <td>{{row.id}}</td>
+                                <td>{{row.nomComplet}}</td>
+                                <td>{{row.statut}}</td>
+                                <td>{{row.hFaire}}</td>
+                                <td>{{row.hfaites}}</td>
+                                <td>{{row.bilan}}</td>
+                                
                             </tr>
                         </tbody>
                     </table>

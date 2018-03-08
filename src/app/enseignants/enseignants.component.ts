@@ -1,28 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-declare interface TableData {
-  headerRow: string[];
-  dataRows: string[][];
-}
+import { ProxyPortailService } from 'app/services/proxy-portail.service';
+
 @Component({
   selector: 'app-enseignants',
   templateUrl: './enseignants.component.html',
   styleUrls: ['./enseignants.component.css']
 })
 export class EnseignantsComponent implements OnInit {
-  public tableData: TableData;
-  constructor() { }
+  rows:any=[];
+  constructor(private _proxy:ProxyPortailService) { }
 
 
   ngOnInit(){
-  this.tableData = {
-      headerRow: [ '#ID','Nom/prénom','département','Statut','Heures à faire','Heures faites','Bilan'],
-      dataRows: [
-          ['1',  'Stephane Lopes','Informatique', 'Responsable','200','300','+100'],
-          ['2',  'Yehia Yaher','Informatique', 'Enseignant','300','100','-200'],
-         
-      ]
-  };
  
+   
+ this.rows=this._proxy.getAllEnseignant();
+ console.log(this.rows);
 
   }
 }

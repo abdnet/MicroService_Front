@@ -16,12 +16,12 @@ import { NgForm } from '@angular/forms';
 export class FormationComponent implements OnInit{
     public allDiplome:any[] = [];
     diplome={
-        idDiplome: "dip22",
-        semestre: "Semestre1",
-        volumehoraire: "VH3",
-        codeUe: "code1",
-        ueId: "Service12",
-        idEnseignant: 2
+        "idDiplome": "",
+        "semestre": "",
+        "volumehoraire": "",
+        "codeUe": "",
+        "ueId": "",
+        "idEnseignant": 0
     };
    
     constructor(private proxy:ProxyPortailService) {
@@ -48,12 +48,12 @@ export class FormationComponent implements OnInit{
     onAddDiplome(diplomeForm:NgForm){
         this.diplome.codeUe=diplomeForm.controls['codeue'].value;
         this.diplome.idDiplome=diplomeForm.controls['maquette'].value;
-        this.diplome.idEnseignant=parseInt(diplomeForm.controls['respo'].value);
+        this.diplome.idEnseignant=(diplomeForm.controls['respo'].value);
         this.diplome.semestre=diplomeForm.controls['maquette'].value;
         this.diplome.ueId=diplomeForm.controls['titre'].value;
         this.diplome.volumehoraire=diplomeForm.controls['vhoraire'].value;
         console.log(JSON.stringify(this.diplome));
-       this.proxy.addDiplome(JSON.stringify(this.diplome)).subscribe(
+       this.proxy.addDiplome((this.diplome)).subscribe(
         res => {
           console.log(res);
         },

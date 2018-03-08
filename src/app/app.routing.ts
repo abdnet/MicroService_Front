@@ -11,7 +11,7 @@ import { EnsComponent } from 'app/entity/ens/ens.component';
 
 export const AppRoutes: Routes = [
     {
-        path: '*',
+        path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',
     },

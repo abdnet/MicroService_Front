@@ -18,21 +18,7 @@
                                 </p>
                                 </div>
                           
-                        <div class="col-md-4">
-                            <div id="custom-search-input">
-                                <div class="input-group col-md-12">
-                                    
-                                    <input type="text" class="search-query form-control" id="keysearch" placeholder="Search" />
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-success" type="button">
-                                            <i class="ti-search"></i>
-                                        </button>
-                                        
-                                    </span>
-                                </div>
-                            </div>
-                               
-                        </div>
+                       
                             
                   </div>
               </div>
@@ -47,7 +33,6 @@
                               <th>Responsable</th>
                               <th>Volume horaire</th>
                               <th>Verrou</th>
-                              <th>Action</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -58,17 +43,9 @@
                               <td>Informatique</td>
                               <td>{{row.idEnseignant}}</td>
                               <td>{{row.volumehoraire}}</td>
-                              <td>Oui</td>
-                              <td><div class="dropdown">
-                                  <button class="btn btn-info btn-m btn-fill dropdown-toggle" type="button" 
-                                  data-toggle="dropdown">Action
-                                  </button>
-                                  <ul class="dropdown-menu">
-                                      <li><a href="#"><i class="ti-trash"></i>  Supprimer</a></li>
-                                      <li><a href="#"><i class="ti-pencil"></i> Editer</a></li>
-                                    
-                                  </ul>
-                                </div></td>
+                              <td *ngIf="row.verrou==true"><span class="label label-success">ON</span></td>
+                              <td *ngIf="row.verrou==false"><span class="label label-warning">OFF</span></td>
+                              
                           </tr>
                       </tbody>
                   </table>
@@ -144,7 +121,7 @@
                               </div>
                               <div class="form-group">
                                 <label for="formGroupExampleInput2">Responsable</label>
-                                <input ngModel required type="text" class="form-control" id="formAdd" name="respo" placeholder="Informatique">
+                                <input ngModel required type="number" class="form-control" id="formAdd" name="respo" placeholder="Informatique">
                               </div>
                               <div class="form-group">
                                 <label for="formGroupExampleInput2">Volume horaire</label>

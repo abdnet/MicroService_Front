@@ -9,26 +9,21 @@
                       <thead>
                         <tr>
                           <th scope="col">Code UE</th>
-                          <th scope="col">Non UE</th>
+                          <th scope="col">Label UE</th>
                           <th scope="col">Semestre</th>
                           <th scope="col">Verrou</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">Licence IN100</th>
-                          <td>Fondements de l'Informatique I</td>
-                          <td>L1 S2</td>
-                          <td><span class="label label-primary">ON</span>
-                          </td>
+                        <tr *ngFor="let item of diplomeByEns">
+                          <td scope="row">{{item.idDiplome}}</td>
+                          <td scope="row">{{item.codeUe}}</td>
+                          <td>{{item.semestre}}</td>
+                          <td *ngIf="item.volumehoraire=='dslh'"><span class="label label-success">ON</span></td>
+                          <td *ngIf="item.volumehoraire!='dslh'"><span class="label label-warning">OFF</span></td>
+                          
                         </tr>
-                        <tr>
-                              <th scope="row">Licence IN101</th>
-                              <td>Fondements de l'Informatique II</td>
-                              <td>L2 S2</td>
-                              <td><span class="label label-warning">OFF</span>
-                              </td>
-                            </tr>
+                       
                       </tbody>
                     </table>
           <div class="footer">
