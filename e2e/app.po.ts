@@ -9,3 +9,4 @@ export class PdFreeAngularcliPage {
     return element(by.css('app-root h1')).getText();
   }
 }
+

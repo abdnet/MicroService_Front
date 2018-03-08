@@ -12,3 +12,4 @@ describe('pd-free-angularcli App', () => {
     expect(page.getParagraphText()).toEqual('Welcome to app!!');
   });
 });
+
