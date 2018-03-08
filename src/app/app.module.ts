@@ -9,6 +9,7 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
 import { NguiMapModule} from '@ngui/map';
+import {FormsModule} from '@angular/forms';
 
 import { DashboardComponent }   from './dashboard/dashboard.component';
 import { UserComponent }   from './user/user.component';
@@ -21,6 +22,8 @@ import { EnsComponent } from './entity/ens/ens.component';
 import { EnseignantsComponent } from './enseignants/enseignants.component';
 import { QuotaEnseignantComponent } from './shared/quota-enseignant/quota-enseignant.component';
 import { DiplomeEnseignantComponent } from './shared/diplome-enseignant/diplome-enseignant.component';
+import { ServiceService } from './services/service.service';
+import { DiplomeService } from './services/diplome.service';
 
 @NgModule({
   declarations: [
@@ -41,9 +44,10 @@ import { DiplomeEnseignantComponent } from './shared/diplome-enseignant/diplome-
     SidebarModule,
     NavbarModule,
     FooterModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
-  providers: [ProxyPortailService, EnseignantService],
+  providers: [ProxyPortailService, EnseignantService, ServiceService, DiplomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

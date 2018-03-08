@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import {ProxyPortailService} from '../services/proxy-portail.service';
+import { NgForm } from '@angular/forms';
 
-declare interface TableData {
-    headerRow: string[];
-    dataRows: string[][];
-}
+
 @Component({
     selector: 'formation-cmp',
     moduleId: module.id,
@@ -15,20 +14,52 @@ declare interface TableData {
 
 
 export class FormationComponent implements OnInit{
-    public tableData: TableData;
-    constructor() { }
+    public allDiplome:any[] = [];
+    diplome={
+        idDiplome: "dip22",
+        semestre: "Semestre1",
+        volumehoraire: "VH3",
+        codeUe: "code1",
+        ueId: "Service12",
+        idEnseignant: 2
+    };
+   
+    constructor(private proxy:ProxyPortailService) {
+
+     }
 
   
     ngOnInit(){
-    this.tableData = {
-        headerRow: [ '#ID','Département','Maquette',  'Titre UE','Responsable','Volume horaire','Verrou'],
-        dataRows: [
-            ['INFO120',  'informatique','L1S1', 'Algorithme 1','Lopes stephane','200','Oui'],
-            ['INFO120',  'informatique','L1S2', 'Algorithme 2','Lopes stephane', '200','Oui'],
-            ['INFO120',  'informatique', 'L2S1','Algorithme 1', 'Lopes stephane','200','Oui'],
-        ]
-    };
-   
+    
+        this.getAllDiplome();
+    }
 
+
+    getAllDiplome(){
+        this.proxy.allDiplome().subscribe(
+            data=>{
+                this.allDiplome=data;
+                console.log(data);
+            },err=>{
+                  console.log(err);
+                });
+    }
+
+    onAddDiplome(diplomeForm:NgForm){
+        this.diplome.codeUe=diplomeForm.controls['codeue'].value;
+        this.diplome.idDiplome=diplomeForm.controls['maquette'].value;
+        this.diplome.idEnseignant=parseInt(diplomeForm.controls['respo'].value);
+        this.diplome.semestre=diplomeForm.controls['maquette'].value;
+        this.diplome.ueId=diplomeForm.controls['titre'].value;
+        this.diplome.volumehoraire=diplomeForm.controls['vhoraire'].value;
+        console.log(JSON.stringify(this.diplome));
+       this.proxy.addDiplome(JSON.stringify(this.diplome)).subscribe(
+        res => {
+          console.log(res);
+        },
+        err => {
+          console.log(err);
+        }
+      );
     }
 }

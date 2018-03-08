@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProxyPortailService} from '../services/proxy-portail.service';
+import { forEach } from '@angular/router/src/utils/collection';
+import { ServiceService } from 'app/services/service.service';
 @Component({
   selector: 'app-service',
   templateUrl: './service.component.html',
@@ -7,17 +9,23 @@ import {ProxyPortailService} from '../services/proxy-portail.service';
 })
 export class ServiceComponent implements OnInit {
   allservice :any;
-  constructor(private proxy:ProxyPortailService) { }
+  v:number;
+  constructor(private proxy:ProxyPortailService,private  _services:ServiceService) { }
 
   ngOnInit() {
-    this.proxy.allservice().subscribe(
+   this.proxy.allservice().subscribe(
       data=>{
           this.allservice=data;
-          console.log(data);
+          for(let i=0;i<data.length;i++){
+            console.log(data[i]);
+          }
+         
       },err=>{
             console.log(err);
           });
 
+//this.proxy.allServicesByEnseignant(1);
+//this._services.getServiceByEnseignant(1);
   }
   }
 
