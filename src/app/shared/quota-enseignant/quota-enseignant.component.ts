@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProxyPortailService } from 'app/services/proxy-portail.service';
 
 @Component({
   selector: 'app-quota-enseignant',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuotaEnseignantComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _proxy:ProxyPortailService) { }
+  rows:any=[];
   ngOnInit() {
+  this.rows=this._proxy.getQuotasForEns(1);
+  console.log(this.rows);
   }
 
 }

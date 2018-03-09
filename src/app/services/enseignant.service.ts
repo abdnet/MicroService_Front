@@ -11,6 +11,7 @@ export class EnseignantService {
   }
 
   getEnseignantById(idEns){
+    return this._http.get('http://localhost:9999/enseignantProxy/'+idEns).map(resp=>resp.json());
 
   }
 

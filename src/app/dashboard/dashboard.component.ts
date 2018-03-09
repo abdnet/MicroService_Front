@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 import { ProxyPortailService } from 'app/services/proxy-portail.service';
+import { EnseignantService } from 'app/services/enseignant.service';
 
 declare var $:any;
 
@@ -11,15 +12,18 @@ declare var $:any;
 })
 
 export class DashboardComponent implements OnInit{
-    constructor(private _proxy:ProxyPortailService) { }
+    constructor(private _proxy:ProxyPortailService,private _enseignant:EnseignantService) { }
     public enseignant:number;
     public uniteEnseignement:number;
     public heurefaites:number;
+    public stat:any=[];   
+
 
     ngOnInit(){
-            this.enseignant=1;
-            this.heurefaites=this._proxy.getAllheure();
-            this.uniteEnseignement=3;
+        
        
 }
+
+
+
 }

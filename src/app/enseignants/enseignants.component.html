@@ -57,7 +57,9 @@
                                 <td>{{row.statut}}</td>
                                 <td>{{row.hFaire}}</td>
                                 <td>{{row.hfaites}}</td>
-                                <td>{{row.bilan}}</td>
+                                <td *ngIf='(row.bilan<0)'><span class="label label-warning">{{row.bilan}}</span></td>
+                                <td *ngIf='row.bilan>0'><span class="label label-primary">{{row.bilan}}</span></td>
+                                <td *ngIf='row.bilan==0'><span class="label label-success">{{row.bilan}}</span></td>
                                 
                             </tr>
                         </tbody>

@@ -17,7 +17,7 @@
                       <tbody>
                         <tr *ngFor="let item of diplomeByEns">
                           <td scope="row">{{item.idDiplome}}</td>
-                          <td scope="row">{{item.codeUe}}</td>
+                          <td scope="row">{{item.label}}</td>
                           <td>{{item.semestre}}</td>
                           <td *ngIf="item.volumehoraire=='dslh'"><span class="label label-success">ON</span></td>
                           <td *ngIf="item.volumehoraire!='dslh'"><span class="label label-warning">OFF</span></td>

@@ -10,22 +10,12 @@ import { ServiceService } from 'app/services/service.service';
 export class ServiceComponent implements OnInit {
   allservice :any;
   v:number;
+  rows:any=[];
+
   constructor(private proxy:ProxyPortailService,private  _services:ServiceService) { }
 
   ngOnInit() {
-   this.proxy.allservice().subscribe(
-      data=>{
-          this.allservice=data;
-          for(let i=0;i<data.length;i++){
-            console.log(data[i]);
-          }
-         
-      },err=>{
-            console.log(err);
-          });
-
-//this.proxy.allServicesByEnseignant(1);
-//this._services.getServiceByEnseignant(1);
+   this.rows=this.proxy.getQuotasForAllEns();
   }
   }
 

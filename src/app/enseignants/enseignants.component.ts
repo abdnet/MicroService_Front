@@ -15,7 +15,6 @@ export class EnseignantsComponent implements OnInit {
  
    
  this.rows=this._proxy.getAllEnseignant();
- console.log(this.rows);
 
   }
 }
